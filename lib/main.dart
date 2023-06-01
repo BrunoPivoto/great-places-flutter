@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (ctx) => GreatPlaces(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Great Places',
         theme: theme.copyWith(
           colorScheme: theme.colorScheme.copyWith(secondary: Colors.amber, primary: Colors.indigo),
