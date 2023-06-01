@@ -9,6 +9,21 @@ class GreatPlaces with ChangeNotifier {
   // ignore: prefer_final_fields
   List<Place> _items = [];
 
+  Future<void> loadPlaces() async {
+    final dataList = await DbUtil.getData('places');
+    _items = dataList
+        .map(
+          (item) => Place(
+            id: item['id'],
+            title: item['title'],
+            image: File(item['image']),
+            location: null, //item['location'],
+          ),
+        )
+        .toList();
+    notifyListeners();
+  }
+
   List<Place> get items {
     return [..._items];
   }
