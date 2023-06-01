@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:great_places/models/palce.dart';
+import 'package:great_places/utils/db_util.dart';
 
 class GreatPlaces with ChangeNotifier {
   // ignore: prefer_final_fields
@@ -29,6 +30,14 @@ class GreatPlaces with ChangeNotifier {
     );
 
     _items.add(newPlace);
+
+    //inserindo no sqlite
+    DbUtil.insert('places', {
+      'id': newPlace.id,
+      'title': newPlace.title,
+      'image': newPlace.image.path,
+    });
+
     notifyListeners();
   }
 }
