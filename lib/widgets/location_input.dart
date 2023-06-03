@@ -5,7 +5,11 @@ import 'package:great_places/screens/map_screen.dart';
 import 'package:great_places/utils/location_util.dart';
 
 class LocationInput extends StatefulWidget {
-  const LocationInput({super.key});
+  final Function onSelectPosition;
+  const LocationInput(
+    this.onSelectPosition, {
+    super.key,
+  });
 
   @override
   State<LocationInput> createState() => _LocationInputState();
@@ -24,22 +28,22 @@ class _LocationInputState extends State<LocationInput> {
   }
 
   Future<void> _selectOnMap() async {
-    final LatLng selectedLocation = await Navigator.of(context).push(
+    final LatLng selectedPosition = await Navigator.of(context).push(
       MaterialPageRoute(
         fullscreenDialog: true,
         builder: (ctx) => const MapScreen(),
       ),
     );
 
-    if (selectedLocation == null) {
-      return;
-    } else {
-      final staticMapImageUrl = LocationUtil.generateLocationPreviewImage(
-          latitude: selectedLocation.latitude, longitude: selectedLocation.longitude);
-      setState(() {
-        _previewImageUrl = staticMapImageUrl;
-      });
-    }
+    // ignore: unnecessary_null_comparison
+    if (selectedPosition == null) return;
+
+    widget.onSelectPosition(selectedPosition);
+    final staticMapImageUrl = LocationUtil.generateLocationPreviewImage(
+        latitude: selectedPosition.latitude, longitude: selectedPosition.longitude);
+    setState(() {
+      _previewImageUrl = staticMapImageUrl;
+    });
   }
 
   @override
