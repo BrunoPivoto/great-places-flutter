@@ -30,12 +30,17 @@ class PlacesListScreen extends StatelessWidget {
                       : ListView.builder(
                           itemCount: greatPlaces.itemsCount,
                           itemBuilder: (ctx, index) => ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: FileImage(greatPlaces.itemByIndex(index).image),
-                            ),
-                            title: Text(greatPlaces.itemByIndex(index).title),
-                            onTap: () {},
-                          ),
+                              leading: CircleAvatar(
+                                backgroundImage: FileImage(greatPlaces.itemByIndex(index).image),
+                              ),
+                              title: Text(greatPlaces.itemByIndex(index).title),
+                              subtitle: Text(greatPlaces.itemByIndex(index).location!.address),
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  AppRoutes.placeDetail,
+                                  arguments: greatPlaces.itemByIndex(index),
+                                );
+                              }),
                         ),
                   child: const Center(
                     child: Text('Nenhum local cadastrado'),

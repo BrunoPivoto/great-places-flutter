@@ -11,6 +11,7 @@ class MapScreen extends StatefulWidget {
     this.initialLocation = const PlaceLocation(
       latitude: -22.240045,
       longitude: -45.711334,
+      address: '',
     ),
     this.isReadOnly = false,
   });
@@ -52,12 +53,12 @@ class _MapScreenState extends State<MapScreen> {
         ),
         onTap: widget.isReadOnly ? null : _selectPosition,
         // ignore: unnecessary_null_comparison
-        markers: _pickedPosition == null
+        markers: (_pickedPosition == null && !widget.isReadOnly)
             ? {}
             : {
                 Marker(
                   markerId: const MarkerId('p1'),
-                  position: _pickedPosition!,
+                  position: _pickedPosition ?? widget.initialLocation.toLatLng(),
                 ),
               },
       ),
