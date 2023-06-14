@@ -45,7 +45,7 @@ $ Run & Debug ou a tecla F5
 ```
 ---
 ### Prints da Aplicação
-<img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/main/assets/images/tela_1.jpeg" width="120px;" alt="120px"/>           <img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/main/assets/images/tela_2.jpeg" width="120px;" alt="120px"/>           <img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/main/assets/images/tela_3.jpeg" width="120px;" alt="120px"/><br>
+<img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/65f4f1c2813a9e38b969afddc8fe888da116927b/assets/images/tela_1.jpeg" width="120px;" alt="120px"/>           <img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/master/assets/images/tela_2.jpeg" width="120px;" alt="120px"/>           <img style="border-radius: 5%;" src="https://github.com/BrunoPivoto/great-places-flutter/blob/master/assets/images/tela_3.jpeg" width="120px;" alt="120px"/><br>
 ---
 
 ##  Autor
